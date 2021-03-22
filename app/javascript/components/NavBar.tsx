@@ -13,7 +13,8 @@ export default function NavBar() {
 					<a href='/'>
 						<p
 							className={`${styles.link} ${
-								window.location.pathname === '/' && styles.active
+								!['/about', '/contact'].includes(window.location.pathname) &&
+								styles.active
 							}`}
 						>
 							Work
