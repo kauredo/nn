@@ -1,0 +1,35 @@
+.navbar {
+	height: 12rem;
+	.container {
+		height: 100%;
+		width: 90%;
+		margin: auto;
+		display: flex;
+		align-items: center;
+	}
+	.logoSection {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		.logo {
+			height: 4rem;
+			width: 4rem;
+		}
+	}
+	.sections {
+		height: 100%;
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		.link {
+			line-height: 1.2rem;
+
+			&:hover {
+				border-bottom: 1px solid black;
+			}
+		}
+		.active {
+			border-bottom: 1px solid black;
+		}
+	}
+}
