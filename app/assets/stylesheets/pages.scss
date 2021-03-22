@@ -1,11 +1,13 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'utils/utils';
 
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	font-family: $main-font;
 }
 
 h1,
@@ -21,4 +23,86 @@ p {
 a {
 	color: inherit;
 	text-decoration: none;
+}
+
+.container {
+	padding: 0 5%;
+	min-height: calc(100vh - 12rem);
+}
+
+.about,
+.contact {
+	max-width: 55%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.about-header {
+	h3 {
+		margin-bottom: 2rem;
+		font-family: $secondary-font;
+	}
+}
+.about-services {
+}
+.about-bottom,
+.about-services {
+	margin-bottom: 4rem;
+}
+
+.contact-bottom {
+	margin: 4rem 0;
+}
+
+.contact-form {
+	padding: 2rem;
+	border: 1px solid black;
+}
+.side-inputs {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+}
+.form-group {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin: 1rem 0;
+
+	label {
+		margin-bottom: 0.5rem;
+	}
+
+	input,
+	textarea {
+		width: 100%;
+		background-color: whitesmoke;
+		border: 1px solid rgba(black, 0.2);
+		padding: 0.5rem;
+		font-size: inherit;
+
+		&:focus {
+			outline: 2px solid rgba(black, 0.5);
+			outline-offset: 0.5rem;
+			background-color: white;
+		}
+	}
+}
+
+.required:after {
+	content: ' *';
+	color: red;
+}
+
+.submit-button {
+	background-color: white;
+	color: black;
+	padding: 2rem 3rem;
+	box-shadow: none;
+	border-radius: none;
+	border: 1px solid black;
+	cursor: pointer;
 }

@@ -1,4 +1,7 @@
+@import '../../assets/stylesheets/utils/utils';
+
 .navbar {
+	font-family: $main-font;
 	height: 12rem;
 	.container {
 		height: 100%;
@@ -21,8 +24,10 @@
 		display: flex;
 		gap: 1rem;
 		align-items: center;
+		margin-left: 2rem;
 		.link {
 			line-height: 1.2rem;
+			border-bottom: 1px solid transparent;
 
 			&:hover {
 				border-bottom: 1px solid black;
@@ -30,6 +35,14 @@
 		}
 		.active {
 			border-bottom: 1px solid black;
+		}
+	}
+
+	.instagram {
+		text-align: right;
+		width: 100%;
+		i:hover {
+			color: purple;
 		}
 	}
 }

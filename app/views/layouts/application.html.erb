@@ -9,10 +9,13 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag "application" %>
+    <script src="https://kit.fontawesome.com/f01d8e868a.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <%= react_component('NavBar') %>
-    <%= yield %>
+    <div class='container'>
+      <%= yield %>
+    </div>
   </body>
 </html>

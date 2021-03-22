@@ -7,7 +7,7 @@ export default function NavBar() {
 		<div className={styles.navbar}>
 			<div className={styles.container}>
 				<div className={styles.logoSection}>
-					<img className={styles.logo} src='images/logo.png' alt='nn' />
+					<img className={styles.logo} src='/assets/logo.png' alt='nn' />
 				</div>
 				<div className={styles.sections}>
 					<a href='/'>
@@ -37,6 +37,13 @@ export default function NavBar() {
 							Contact
 						</p>
 					</a>
+				</div>
+				<div className={styles.instagram}>
+					<h1>
+						<a href='https://www.instagram.com/imkfmnn' target='/blank'>
+							<i className='fab fa-instagram'></i>
+						</a>
+					</h1>
 				</div>
 			</div>
 		</div>
