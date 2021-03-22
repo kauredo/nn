@@ -1,0 +1,14 @@
+<section class="show">
+  <div class="top-show">
+    <h1>Caroline</h1>
+    <h5>@imkfmnn on instagram</h5>
+    <p class="model">model: Carolina Costa // @kikacosta99</p>
+  </div>
+  <div class="caroline">
+    <% Dir.glob('app/assets/images/caroline/*').sort.map do |path| %>
+      <div class="image-section">
+        <%= image_tag "caroline/#{ File.basename(path) }" %>
+      </div>
+    <% end.reduce(&:+) %>
+  </div>
+</section>

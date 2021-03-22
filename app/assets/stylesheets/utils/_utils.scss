@@ -1,2 +1,30 @@
 $main-font: arial;
 $secondary-font: times;
+
+@mixin show-photos($small, $large, $aspect-height, $aspect-width) {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1vw;
+
+	.image-section {
+		margin: 1vw 0 0;
+		width: calc(100% / #{$small} - ((#{$small} - 1) * 1vw));
+
+		img {
+			width: calc(88vw / #{$small});
+			height: calc((88vw / #{$small}) * #{$aspect-height} / #{$aspect-width});
+			object-fit: cover;
+		}
+
+		@media screen and (min-width: 760px) {
+			width: calc(100% / #{$large} - ((#{$large} - 1) * 1vw));
+
+			img {
+				width: calc(88vw / #{$large});
+				height: calc((88vw / #{$large}) * #{$aspect-height} / #{$aspect-width});
+			}
+		}
+	}
+}
