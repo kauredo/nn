@@ -10,6 +10,10 @@
 	font-family: $main-font;
 }
 
+:hover {
+	transition: all ease 0.25s;
+}
+
 h1,
 h2,
 h3,
@@ -30,13 +34,67 @@ a {
 	min-height: calc(100vh - 12rem);
 }
 
-.about,
-.contact {
-	max-width: 55%;
+.work {
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
+
+.about {
+	max-width: 75%;
+}
+
+.contact {
+	max-width: 95%;
+	margin: auto;
+}
+
+.about,
+.contact {
+	min-height: calc(100vh - 12rem);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	@media screen and (min-width: 760px) {
+		max-width: 55%;
+		margin: 0;
+	}
+}
+
+.work-grid {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	.image-section {
+		width: 90%;
+		margin-bottom: 3rem;
+
+		img {
+			width: 90vw;
+			height: calc(90vw * 3 / 4);
+			object-fit: cover;
+
+			&:hover {
+				opacity: 0.9;
+			}
+		}
+
+		@media screen and (min-width: 760px) {
+			width: 45%;
+			margin-bottom: 6rem;
+
+			img {
+				width: 40vw;
+				height: 30vw;
+			}
+		}
+	}
+	.subtitle {
+		padding-top: 1rem;
+	}
 }
 
 .about-header {
@@ -45,8 +103,7 @@ a {
 		font-family: $secondary-font;
 	}
 }
-.about-services {
-}
+
 .about-bottom,
 .about-services {
 	margin-bottom: 4rem;
@@ -60,12 +117,14 @@ a {
 	padding: 2rem;
 	border: 1px solid black;
 }
+
 .side-inputs {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-end;
 	gap: 1rem;
 }
+
 .form-group {
 	display: flex;
 	flex-direction: column;
