@@ -5,8 +5,9 @@ const styles = require('./NavBar.module.scss');
 export default function NavBar() {
 	const burgerRef = React.useRef(null);
 	const linksRef = React.useRef(null);
+	const [open, setOpen] = React.useState(false);
 	const addClick = () => {
-		console.log(burgerRef.current);
+		setOpen(!open);
 		burgerRef.current.classList.toggle(styles.open);
 		if (linksRef.current.classList.contains(styles.hidden)) {
 			linksRef.current.classList.toggle(styles.hidden);
@@ -17,9 +18,15 @@ export default function NavBar() {
 			linksRef.current.classList.toggle(styles.visuallyHidden);
 			setTimeout(() => {
 				linksRef.current.classList.toggle(styles.hidden);
-			}, 2000);
+			}, 600);
 		}
 	};
+
+	React.useEffect(() => {
+		let vh = window.innerHeight * 0.01;
+		// Then we set the value in the --vh custom property to the root of the document
+		document.documentElement.style.setProperty('--vh', `${vh}px`);
+	}, [open, setOpen]);
 
 	return (
 		<div className={styles.navbar}>

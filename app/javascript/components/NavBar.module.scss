@@ -3,6 +3,7 @@
 .navbar {
 	font-family: $main-font;
 	height: 6rem;
+	background-color: white;
 
 	.container {
 		height: 100%;
@@ -30,14 +31,14 @@
 		top: 6rem;
 		left: 0;
 		background-color: white;
-		height: calc(100vh - 6rem);
+		height: calc(var(--vh, 1vh) * 100 - 6rem);
 		width: 100vw;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-around;
 		overflow: hidden;
-		transition: all 1s ease;
+		transition: all 0.5s ease;
 	}
 	.visuallyHidden {
 		opacity: 0;
@@ -65,6 +66,7 @@
 	}
 
 	.instagram {
+		padding-bottom: 3rem;
 		i:hover {
 			color: purple;
 		}
@@ -72,7 +74,9 @@
 
 	@media screen and (min-width: 760px) {
 		height: 12rem;
-
+		.instagram {
+			padding-bottom: 0;
+		}
 		.container {
 			height: 100%;
 			width: 90%;
