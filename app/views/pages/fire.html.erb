@@ -1,0 +1,32 @@
+<section class="show">
+  <div class="top-show">
+    <h1>I SAW FIRE</h1>
+    <h5>@imkfmnn on instagram</h5>
+    <p class="model">model: Mariana Martins // @mariana00martins</p>
+  </div>
+  <div class="fire">
+    <% Dir.glob('app/assets/images/fire/*').sort.map do |path| %>
+      <div class="image-section">
+        <%= image_tag "fire/#{ File.basename(path) }" %>
+      </div>
+    <% end.reduce(&:+) %>
+  </div>
+  <div class="scroller">
+    <%= link_to peace_path() do %>
+      <div class="scroller-section">
+        <h2>
+          <i class="fas fa-chevron-left"></i>
+        </h2>
+        <h2 class="subtitle">The battle for peace</h2>
+      </div>
+    <% end %>
+    <%= link_to randoms_path() do %>
+      <div class="scroller-section">
+        <h2 class="subtitle">Random Shots</h2>
+        <h2>
+          <i class="fas fa-chevron-right"></i>
+        </h2>
+      </div>
+    <% end %>
+  </div>
+</section>

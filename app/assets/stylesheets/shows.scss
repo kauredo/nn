@@ -1,3 +1,5 @@
+@import 'utils/utils';
+
 .show {
 	display: flex;
 	flex-direction: column;
@@ -16,9 +18,33 @@
 	margin-bottom: 5rem;
 }
 
+.scroller {
+	margin: 3rem 0;
+}
+
+.scroller,
+.scroller-section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.scroller-section {
+	gap: 2rem;
+}
+
 .caroline {
 	@include show-photos(2, 3, 4, 3);
-	.subtitle {
-		padding-top: 1rem;
-	}
+}
+
+.fire {
+	@include show-photos(2, 2, 16, 9);
+}
+
+.randoms {
+	@include show-photos(2, 3, 1, 1);
+}
+
+.peace {
+	@include show-photos(2, 3, 16, 9);
 }
