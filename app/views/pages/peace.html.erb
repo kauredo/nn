@@ -5,7 +5,7 @@
     <p class="model">model: CatarinaTomás // @catarinabmtomas</p>
   </div>
   <div class="peace">
-    <%= react_component('ImageCaroussel', images: Dir.glob('app/assets/images/peace/*').sort ) %>
+    <%= react_component('ImageCarousel', images: Dir.glob('app/assets/images/peace/*').sort.map{|path| File.basename(path)} ) %>
   </div>
   <div class="scroller">
     <%= link_to caroline_path() do %>
