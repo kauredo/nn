@@ -1,0 +1,17 @@
+$small: 2;
+$large: 3;
+$aspect-height: 16;
+$aspect-width: 9;
+
+.parent {
+	width: 90vw;
+}
+.imageSection {
+	margin: 0;
+	height: 40vw;
+
+	img {
+		height: 100%;
+		object-fit: scale-down;
+	}
+}
