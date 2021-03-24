@@ -37,8 +37,17 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-around;
-		overflow: hidden;
 		transition: all 0.5s ease;
+		position: fixed;
+	}
+	&.fixed {
+		top: 0;
+		left: 0;
+		right: 0;
+		position: fixed;
+	}
+	.no-scroll {
+		overflow-y: hidden;
 	}
 	.visuallyHidden {
 		opacity: 0;

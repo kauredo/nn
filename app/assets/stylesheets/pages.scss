@@ -50,6 +50,16 @@ a {
 	margin: auto;
 }
 
+.work-about {
+	height: 25rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	@media screen and (min-width: 760px) {
+		max-width: 55%;
+	}
+}
+
 .about,
 .contact {
 	min-height: calc(100vh - 12rem);

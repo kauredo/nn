@@ -5,16 +5,23 @@ const styles = require('./NavBar.module.scss');
 export default function NavBar() {
 	const burgerRef = React.useRef(null);
 	const linksRef = React.useRef(null);
+	const navRef = React.useRef(null);
 	const [open, setOpen] = React.useState(false);
 	const addClick = () => {
 		setOpen(!open);
 		burgerRef.current.classList.toggle(styles.open);
 		if (linksRef.current.classList.contains(styles.hidden)) {
+			setTimeout(() => {
+				navRef.current.classList.toggle(styles.fixed);
+			}, 500);
+			document.body.style.overflowY = 'hidden';
 			linksRef.current.classList.toggle(styles.hidden);
 			setTimeout(() => {
 				linksRef.current.classList.toggle(styles.visuallyHidden);
 			}, 10);
 		} else {
+			navRef.current.classList.toggle(styles.fixed);
+			document.body.style.overflowY = 'auto';
 			linksRef.current.classList.toggle(styles.visuallyHidden);
 			setTimeout(() => {
 				linksRef.current.classList.toggle(styles.hidden);
@@ -29,7 +36,7 @@ export default function NavBar() {
 	}, [open, setOpen]);
 
 	return (
-		<div className={styles.navbar}>
+		<div ref={navRef} className={styles.navbar}>
 			<div className={styles.container}>
 				<div className={styles.logoSection}>
 					<a href='/'>
