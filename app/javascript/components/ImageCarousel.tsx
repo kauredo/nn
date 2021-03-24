@@ -1,4 +1,6 @@
 import * as React from 'react';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 const styles = require('./ImageCarousel.module.scss');
 
@@ -17,5 +19,18 @@ export default function ImageCarousel(props: Props) {
 			/>
 		</div>
 	));
-	return <div className={styles.parent}></div>;
+	return (
+		<div className={styles.parent}>
+			<Carousel
+				centerMode
+				centerSlidePercentage={50}
+				infiniteLoop
+				showThumbs={false}
+				showIndicators={false}
+				useKeyboardArrows
+			>
+				{items}
+			</Carousel>
+		</div>
+	);
 }
