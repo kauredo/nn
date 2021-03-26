@@ -1,5 +1,5 @@
-$main-font: arial;
-$secondary-font: times;
+$main-font: 'Roboto', sans-serif;
+$secondary-font: 'Syncopate', sans-serif;
 
 @mixin show-photos($small, $large, $aspect-height, $aspect-width) {
 	display: flex;

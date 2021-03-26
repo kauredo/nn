@@ -10,6 +10,14 @@
 	font-family: $main-font;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: $secondary-font;
+}
+
 :hover {
 	transition: all ease 0.25s;
 }
@@ -110,7 +118,6 @@ a {
 .about-header {
 	h3 {
 		margin-bottom: 2rem;
-		font-family: $secondary-font;
 	}
 }
 
