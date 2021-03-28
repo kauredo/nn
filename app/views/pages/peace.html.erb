@@ -4,24 +4,24 @@
     <h5>@imkfmnn on instagram</h5>
     <p class="model">model: CatarinaTomás // @catarinabmtomas</p>
   </div>
-  <div class="peace">
+  <div class="peace" id="peace">
     <%= react_component('ImageCarousel', images: Dir.glob('app/assets/images/peace/*').sort.map{|path| File.basename(path)} ) %>
   </div>
   <div class="scroller">
     <%= link_to caroline_path() do %>
       <div class="scroller-section">
-        <h2>
+        <h5>
           <i class="fas fa-chevron-left"></i>
-        </h2>
-        <h2 class="subtitle">Caroline</h2>
+        </h5>
+        <h5 class="subtitle">Caroline</h5>
       </div>
     <% end %>
     <%= link_to fire_path() do %>
       <div class="scroller-section">
-        <h2 class="subtitle">I saw fire</h2>
-        <h2>
+        <h5 class="subtitle">I saw fire</h5>
+        <h5>
           <i class="fas fa-chevron-right"></i>
-        </h2>
+        </h5>
       </div>
     <% end %>
   </div>

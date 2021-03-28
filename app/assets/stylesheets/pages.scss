@@ -37,6 +37,10 @@ a {
 	text-decoration: none;
 }
 
+.hidden {
+	visibility: hidden;
+}
+
 .container {
 	padding: 0 5%;
 	min-height: calc(100vh - 12rem);
@@ -50,7 +54,7 @@ a {
 }
 
 .about {
-	max-width: 75%;
+	max-width: 85%;
 }
 
 .contact {
@@ -59,10 +63,15 @@ a {
 }
 
 .work-about {
-	height: 25rem;
+	height: 20rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+
+	.about-bottom {
+		margin-bottom: 4rem;
+	}
+
 	@media screen and (min-width: 760px) {
 		max-width: 55%;
 	}
@@ -116,14 +125,13 @@ a {
 }
 
 .about-header {
-	h3 {
+	h4 {
 		margin-bottom: 2rem;
 	}
 }
 
-.about-bottom,
 .about-services {
-	margin-bottom: 4rem;
+	margin: 2rem 0 4rem;
 }
 
 .contact-bottom {

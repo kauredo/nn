@@ -7,10 +7,14 @@ export default function NavBar() {
 	const linksRef = React.useRef(null);
 	const navRef = React.useRef(null);
 	const [open, setOpen] = React.useState(false);
+	const peace = document.getElementById('peace');
 	const addClick = () => {
 		setOpen(!open);
 		burgerRef.current.classList.toggle(styles.open);
 		if (linksRef.current.classList.contains(styles.hidden)) {
+			if (peace) {
+				peace.classList.toggle('hidden');
+			}
 			setTimeout(() => {
 				navRef.current.classList.toggle(styles.fixed);
 			}, 500);
@@ -22,6 +26,9 @@ export default function NavBar() {
 		} else {
 			navRef.current.classList.toggle(styles.fixed);
 			document.body.style.overflowY = 'auto';
+			if (peace) {
+				peace.classList.toggle('hidden');
+			}
 			linksRef.current.classList.toggle(styles.visuallyHidden);
 			setTimeout(() => {
 				linksRef.current.classList.toggle(styles.hidden);
