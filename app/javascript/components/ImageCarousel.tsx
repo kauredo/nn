@@ -23,7 +23,6 @@ export default function ImageCarousel(props: Props) {
 		<div className={styles.parent}>
 			<Carousel
 				centerMode
-				centerSlidePercentage={50}
 				infiniteLoop
 				showThumbs={false}
 				showIndicators={false}
