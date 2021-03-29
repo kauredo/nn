@@ -55,6 +55,7 @@ a {
 
 .about {
 	max-width: 85%;
+	padding-bottom: 3rem;
 }
 
 .contact {
@@ -147,14 +148,17 @@ a {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
-	gap: 1rem;
+
+	& > * {
+		width: 48% !important;
+	}
 }
 
 .form-group {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	margin: 1rem 0;
+	margin-bottom: 1rem;
 
 	label {
 		margin-bottom: 0.5rem;
