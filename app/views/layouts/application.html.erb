@@ -16,6 +16,7 @@
   </head>
 
   <body>
+    <%= yield(:additional_styles) if content_for? :additional_styles%>
     <%= react_component('NavBar') %>
     <div class='container'>
       <%= yield %>

@@ -1,0 +1,28 @@
+// Place all the styles related to the backoffice controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.bo-container {
+	padding: 0 1vw;
+	.bo-btn {
+		padding: 0.5rem 1rem;
+		border: 2px solid black;
+		margin-bottom: 2rem;
+		width: fit-content;
+	}
+	.bo-table {
+		width: 100%;
+		border: 1px solid black;
+		thead {
+			font-weight: bold;
+			text-align: center;
+			background: #333;
+			color: white;
+		}
+
+		td {
+			border: 1px solid black;
+			padding: 0.5rem 1rem;
+		}
+	}
+}

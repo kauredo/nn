@@ -1,0 +1,33 @@
+<div class="bo-container">
+  <%= link_to new_backoffice_page_path() do %>
+    <div class="bo-btn">New Page</div>
+  <% end %>
+  <table class="bo-table">
+    <thead>
+      <td>title</td>
+      <td>models_name</td>
+      <td>models_instagram</td>
+      <td>image_height</td>
+      <td>image_width</td>
+      <td>number_rows_desktop</td>
+      <td>number_rows_mobile</td>
+      <td>is_slider</td>
+      <td>edit</td>
+    </thead>
+    <tbody>
+      <% @pages.each do |page| %>
+        <tr>
+          <td><%= page.title %></td>
+          <td><%= page.models_name %></td>
+          <td><%= page.models_instagram %></td>
+          <td><%= page.image_height %></td>
+          <td><%= page.image_width %></td>
+          <td><%= page.number_rows_desktop %></td>
+          <td><%= page.number_rows_mobile %></td>
+          <td><%= page.is_slider %></td>
+          <td><%= link_to 'edit', edit_backoffice_page_path(page) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

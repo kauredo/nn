@@ -1,0 +1,89 @@
+<% content_for :additional_styles do -%>
+  <style>
+    .image-section {
+      margin: auto;
+    }
+    .image-section img {
+      width: calc((88vw - <%= @page.number_rows_mobile %>vw) / <%= @page.number_rows_mobile %>);
+      height: calc(((88vw - <%=  @page.number_rows_mobile %>vw) / <%=  @page.number_rows_mobile %>) * <%= @page.image_height %> / <%= @page.image_width %>);
+      object-fit: cover;
+    }
+
+    @media screen and (min-width: 760px) {
+      .image-section {
+        margin: 1vw 0.5vw 0;
+        min-width: fit-content;
+        width: calc(100% / <%= @page.number_rows_desktop %> - ((<%= @page.number_rows_desktop %> - 1) * 1vw));
+      }
+      .image-section img {
+        width: calc((88vw - <%= @page.number_rows_desktop %>vw) / <%= @page.number_rows_desktop %>);
+        height: calc(((88vw - <%= @page.number_rows_desktop %>vw) / <%= @page.number_rows_desktop %>) * <%= @page.image_height %> / <%= @page.image_width %>);
+      }
+    }
+  </style>
+<% end -%>
+
+<section class="show">
+  <div class="top-show">
+    <h1><%= @page.title %></h1>
+    <h5>@imkfmnn on instagram</h5>
+    <% if @page.models_name && @page.models_instagram %>
+      <p class="model">model: <%= @page.models_name %> // <%= @page.models_instagram %></p>
+    <% end %>
+  </div>
+  <% if @page.is_slider %>
+     <div>
+      <%= react_component('ImageCarousel', folder: "#{@page.title.downcase}", images: Dir.glob("app/assets/images/#{@page.title.downcase}/*").sort.map{|path| File.basename(path)} ) %>
+    </div>
+  <% else %>
+    <div class="images">
+      <% Dir.glob("app/assets/images/#{@page.title.downcase}/*").sort.map do |path| %>
+        <div class="image-section" >
+          <%= image_tag "#{@page.title.downcase}/#{ File.basename(path) }" %>
+        </div>
+      <% end.reduce(&:+) %>
+    </div>
+  <% end %>
+  <% if @prev_page.blank? && @next_page.present? %>
+    <div class="scroller" style="justify-content: flex-end">
+      <%= link_to "#{@next_page}" do %>
+        <div class="scroller-section">
+          <h5 class="subtitle"><%= @next_page %></h5>
+          <h5>
+            <i class="fas fa-chevron-right"></i>
+          </h5>
+        </div>
+      <% end %>
+    </div>
+  <% elsif @prev_page.present? && @next_page.present? %>
+    <div class="scroller">
+      <%= link_to "#{@prev_page}" do %>
+        <div class="scroller-section">
+          <h5>
+            <i class="fas fa-chevron-left"></i>
+          </h5>
+          <h5 class="subtitle"><%= @prev_page %></h5>
+        </div>
+      <% end %>
+      <%= link_to "#{@next_page}" do %>
+        <div class="scroller-section">
+          <h5 class="subtitle"><%= @next_page %></h5>
+          <h5>
+            <i class="fas fa-chevron-right"></i>
+          </h5>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="scroller">
+      <%= link_to "#{@prev_page}" do %>
+        <div class="scroller-section">
+          <h5>
+            <i class="fas fa-chevron-left"></i>
+          </h5>
+          <h5 class="subtitle"><%= @prev_page %></h5>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</section>

@@ -1,0 +1,35 @@
+<%= form_with model: @page, url: @page.id ? backoffice_page_path(@page) : backoffice_pages_path(), class: "artigo-form" do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= form.label :models_name %>
+    <%= form.text_field :models_name %>
+  </div>
+  <div class="field">
+    <%= form.label :models_instagram %>
+    <%= form.text_field :models_instagram %>
+  </div>
+  <div class="field">
+    <%= form.label :image_height %>
+    <%= form.number_field :image_height %>
+  </div>
+  <div class="field">
+    <%= form.label :image_width %>
+    <%= form.number_field :image_width %>
+  </div>
+  <div class="field">
+    <%= form.label :number_rows_desktop %>
+    <%= form.number_field :number_rows_desktop %>
+  </div>
+  <div class="field">
+    <%= form.label :number_rows_mobile %>
+    <%= form.number_field :number_rows_mobile %>
+  </div>
+  <div class="field">
+    <%= form.label :is_slider %>
+    <%= form.check_box :is_slider %>
+  </div>
+  <%= form.submit %>
+<% end %>
