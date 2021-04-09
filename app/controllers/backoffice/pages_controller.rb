@@ -1,4 +1,5 @@
 class Backoffice::PagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_page, only: %I(edit update)
 
   def new

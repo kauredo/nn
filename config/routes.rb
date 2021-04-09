@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   root to: 'pages#work'
   get '/work', to: 'pages#work'
   get '/about', to: 'pages#about'
