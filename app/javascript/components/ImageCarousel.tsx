@@ -6,7 +6,6 @@ const styles = require('./ImageCarousel.module.scss');
 
 interface Props {
 	images: any[];
-	folder: string;
 }
 
 export default function ImageCarousel(props: Props) {
@@ -16,8 +15,7 @@ export default function ImageCarousel(props: Props) {
 				loading='lazy'
 				className={styles.image}
 				key={index}
-				src={`assets/${props.folder}/${image}`}
-				alt={image}
+				src={image.url}
 			/>
 		</div>
 	));

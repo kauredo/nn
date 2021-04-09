@@ -27,21 +27,21 @@
   <div class="top-show">
     <h1><%= @page.title %></h1>
     <h5>@imkfmnn on instagram</h5>
-    <% if @page.models_name && @page.models_instagram %>
+    <% if @page.models_name.present? && @page.models_instagram.present? %>
       <p class="model">model: <%= @page.models_name %> // <%= @page.models_instagram %></p>
     <% end %>
   </div>
   <% if @page.is_slider %>
      <div>
-      <%= react_component('ImageCarousel', folder: "#{@page.title.downcase}", images: Dir.glob("app/assets/images/#{@page.title.downcase}/*").sort.map{|path| File.basename(path)} ) %>
+      <%= react_component('ImageCarousel', images: @page.photos.sort_order.map(&:image) ) %>
     </div>
   <% else %>
     <div class="images">
-      <% Dir.glob("app/assets/images/#{@page.title.downcase}/*").sort.map do |path| %>
+      <% @page.photos.sort_order.map do |photo| %>
         <div class="image-section" >
-          <%= image_tag "#{@page.title.downcase}/#{ File.basename(path) }" %>
+          <%= cl_image_tag photo.image %>
         </div>
-      <% end.reduce(&:+) %>
+      <% end %>
     </div>
   <% end %>
   <% if @prev_page.blank? && @next_page.present? %>

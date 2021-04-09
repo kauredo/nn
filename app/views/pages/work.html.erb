@@ -3,7 +3,7 @@
     <% @pages.each do |page| %>
       <div class="image-section">
         <%= link_to "/#{page.slug}" do %>
-          <%= image_tag "#{page.title}/07.jpg" %>
+          <%= cl_image_tag page.main_photo&.image || Photo.first.image %>
           <h4 class="subtitle">
             <%= page.title %>
           </h4>

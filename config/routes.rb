@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/contact', to: 'pages#contact'
   get '/backoffice', to: 'backoffice#index'
   namespace :backoffice do
-    resources :pages
+    resources :pages do
+      patch 'photos'
+    end
   end
   get '*slug', to: 'pages#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

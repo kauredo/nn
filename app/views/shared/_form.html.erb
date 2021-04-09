@@ -31,5 +31,33 @@
     <%= form.label :is_slider %>
     <%= form.check_box :is_slider %>
   </div>
+  <%= form.fields_for :photos do |p| %>
+    <div class="field">
+      <%= p.label :image %><br>
+      <%= p.file_field :image, multiple: true, name: "photos[image][]" %>
+    </div>
+  <% end %>
+  <% if @page.photos.present? %>
+
+      <div class="display-photos">
+        <% @page.photos.each do |photo| %>
+          <div>
+            <%= cl_image_tag(photo.image)  %>
+            <%= fields_for "photos[]",photo do |f| %>
+              <div>
+                <%= f.label :main_photo? %><br>
+                <%= f.check_box :main, value: photo.main %>
+              </div>
+              <div>
+                <%= f.label :order_on_page %><br>
+                <%= f.number_field :order, value: photo.order %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+      </div>
+
+  <% end %>
   <%= form.submit %>
 <% end %>
