@@ -5,6 +5,10 @@
 .bo-container {
 	padding: 0 1vw;
 	overflow-x: scroll;
+	.new-btn {
+		width: fit-content;
+		display: block;
+	}
 	.bo-btn {
 		padding: 0.5rem 1rem;
 		border: 2px solid black;
@@ -43,6 +47,15 @@
 			flex-grow: 1;
 		}
 	}
+	input[type='submit'] {
+		width: 12rem;
+		height: 3rem;
+		margin: 5rem 0;
+	}
+	.error {
+		font-size: 1rem;
+		color: rgba(red, 0.8);
+	}
 }
 
 .display-photos {
@@ -53,10 +66,5 @@
 		height: 15rem;
 
 		margin: 0.125rem;
-	}
-
-	.photos-submit {
-		width: 12rem;
-		height: 3rem;
 	}
 }

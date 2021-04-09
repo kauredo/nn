@@ -1,9 +1,10 @@
 <div class="bo-container">
-  <%= link_to new_backoffice_page_path() do %>
+  <%= link_to new_backoffice_page_path(), class:"new-btn" do %>
     <div class="bo-btn">New Page</div>
   <% end %>
   <table class="bo-table">
     <thead>
+      <td></td>
       <td>title</td>
       <td>models_name</td>
       <td>models_instagram</td>
@@ -17,6 +18,7 @@
     <tbody>
       <% @pages.each do |page| %>
         <tr>
+          <td><%= link_to '❌', backoffice_page_path(page), method: :delete, data: {confirm: 'Are you sure?'} %></td>
           <td><%= page.title %></td>
           <td><%= page.models_name %></td>
           <td><%= page.models_instagram %></td>

@@ -1,10 +1,9 @@
 class Backoffice::PagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_page, only: %I(edit update photos)
+  before_action :find_page, only: %I(edit update photos destroy)
 
   def new
     @page = Page.new
-    @photo = @page.photos.build
   end
 
   def create
@@ -14,14 +13,18 @@ class Backoffice::PagesController < ApplicationController
       params[:photos]['image']&.each do |a|
         @photo = @page.photos.create!(image: a, page_id: @page.id)
       end
+      render :edit
+    else
+      render action: 'new'
     end
-    render action: 'new'
   end
 
   def edit; end
 
   def update
+    @page.slug = nil if @page.title != page_params[:title].downcase
     @page.title = page_params[:title].downcase
+
     if @page.update(page_params.except(:title))
       params[:photos]['image']&.each do |a|
         @photo = @page.photos.create!(image: a, page_id: @page.id)
@@ -30,6 +33,11 @@ class Backoffice::PagesController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  def destroy
+    @page.destroy!
+    redirect_to '/backoffice'
   end
 
   def photos

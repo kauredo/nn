@@ -3,6 +3,13 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
+  <% if @page.errors[:title].any? %>
+    <div class="error">
+      <% @page.errors[:title].each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
   <div class="field">
     <%= form.label :models_name %>
     <%= form.text_field :models_name %>
@@ -15,18 +22,46 @@
     <%= form.label :image_height %>
     <%= form.number_field :image_height %>
   </div>
+  <% if @page.errors[:image_height].any? %>
+    <div class="error">
+      <% @page.errors[:image_height].each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
   <div class="field">
     <%= form.label :image_width %>
     <%= form.number_field :image_width %>
   </div>
+  <% if @page.errors[:image_width].any? %>
+    <div class="error">
+      <% @page.errors[:image_width].each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
   <div class="field">
     <%= form.label :number_rows_desktop %>
     <%= form.number_field :number_rows_desktop %>
   </div>
+  <% if @page.errors[:number_rows_desktop].any? %>
+    <div class="error">
+      <% @page.errors[:number_rows_desktop].each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
   <div class="field">
     <%= form.label :number_rows_mobile %>
     <%= form.number_field :number_rows_mobile %>
   </div>
+  <% if @page.errors[:number_rows_mobile].any? %>
+    <div class="error">
+      <% @page.errors[:number_rows_mobile].each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
   <div class="field">
     <%= form.label :is_slider %>
     <%= form.check_box :is_slider %>
@@ -34,30 +69,28 @@
   <%= form.fields_for :photos do |p| %>
     <div class="field">
       <%= p.label :image %><br>
-      <%= p.file_field :image, multiple: true, name: "photos[image][]" %>
+      <%= p.file_field :image, mdivtiple: true, name: "photos[image][]" %>
     </div>
   <% end %>
+
   <% if @page.photos.present? %>
-
-      <div class="display-photos">
-        <% @page.photos.each do |photo| %>
-          <div>
-            <%= cl_image_tag(photo.image)  %>
-            <%= fields_for "photos[]",photo do |f| %>
-              <div>
-                <%= f.label :main_photo? %><br>
-                <%= f.check_box :main, value: photo.main %>
-              </div>
-              <div>
-                <%= f.label :order_on_page %><br>
-                <%= f.number_field :order, value: photo.order %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-
-      </div>
-
+    <div class="display-photos">
+      <% @page.photos.each do |photo| %>
+        <div>
+          <%= cl_image_tag(photo.image)  %>
+          <%= fields_for "photos[]",photo do |f| %>
+            <div>
+              <%= f.label :main_photo? %><br>
+              <%= f.check_box :main, value: photo.main %>
+            </div>
+            <div>
+              <%= f.label :order_on_page %><br>
+              <%= f.number_field :order, value: photo.order %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-  <%= form.submit %>
+  <%= form.submit data: {confirm: "Are you sure? Note that photos without order won't show up"}%>
 <% end %>
