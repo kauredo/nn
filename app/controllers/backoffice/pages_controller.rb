@@ -31,7 +31,7 @@ class Backoffice::PagesController < ApplicationController
       end
       photos
     else
-      render action: 'new'
+      redirect_to edit_backoffice_page_path(@page)
     end
   end
 
@@ -41,13 +41,23 @@ class Backoffice::PagesController < ApplicationController
   end
 
   def photos
+    new_images = []
     params[:photos].each do |id, values|
+      if id == 'image'
+        new_images << id
+        next
+      end
+
       photo = Photo.find(id)
       photo.main = values['main']
       photo.order = values['order']
       photo.save
     end
-    redirect_to "/#{@page.slug}"
+    if new_images.present?
+      redirect_to edit_backoffice_page_path(@page)
+    else
+      redirect_to "/#{@page.slug}"
+    end
   end
 
   private

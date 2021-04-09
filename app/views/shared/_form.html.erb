@@ -69,21 +69,24 @@
   <%= form.fields_for :photos do |p| %>
     <div class="field">
       <%= p.label :image %><br>
-      <%= p.file_field :image, mdivtiple: true, name: "photos[image][]" %>
+      <%= p.file_field :image, multiple: true, name: "photos[image][]" %>
     </div>
   <% end %>
 
   <% if @page.photos.present? %>
     <div class="display-photos">
       <% @page.photos.each do |photo| %>
-        <div>
+        <div class="photo">
+          <div class="header">
+            <%= link_to '❌', photo_path(photo), method: :delete, data: {confirm: 'Are you sure?'} %>
+          </div>
           <%= cl_image_tag(photo.image)  %>
           <%= fields_for "photos[]",photo do |f| %>
-            <div>
+            <div class="photo-field">
               <%= f.label :main_photo? %><br>
               <%= f.check_box :main, value: photo.main %>
             </div>
-            <div>
+            <div class="photo-field">
               <%= f.label :order_on_page %><br>
               <%= f.number_field :order, value: photo.order %>
             </div>

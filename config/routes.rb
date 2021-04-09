@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/contact', to: 'pages#contact'
   get '/backoffice', to: 'backoffice#index'
+  resources :photos, only: [:destroy]
   namespace :backoffice do
     resources :pages do
       patch 'photos'
+      delete 'delete_photo'
     end
   end
   get '*slug', to: 'pages#show'
