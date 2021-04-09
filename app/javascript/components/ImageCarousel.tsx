@@ -12,10 +12,10 @@ export default function ImageCarousel(props: Props) {
 	const items = props.images.map((image, index) => (
 		<div className={styles.imageSection}>
 			<img
+				loading='lazy'
 				className={styles.image}
 				key={index}
-				src={`assets/peace/${image}`}
-				alt={image}
+				src={image.url}
 			/>
 		</div>
 	));

@@ -1,0 +1,97 @@
+// Place all the styles related to the backoffice controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.bo-container {
+	padding: 0 1vw;
+	overflow-x: scroll;
+	.new-btn {
+		width: fit-content;
+		display: block;
+	}
+	.bo-btn {
+		padding: 0.5rem 1rem;
+		border: 2px solid black;
+		margin-bottom: 2rem;
+		width: fit-content;
+	}
+	.bo-table {
+		width: 100%;
+		border: 1px solid black;
+		thead {
+			font-weight: bold;
+			text-align: center;
+			background: #333;
+			color: white;
+		}
+
+		td {
+			border: 1px solid black;
+			padding: 0.5rem 1rem;
+		}
+	}
+}
+
+.artigo-form {
+	font-size: 1.5rem;
+	.field {
+		margin: 1rem 0;
+		display: flex;
+		align-items: center;
+
+		label {
+			margin-right: 1rem;
+		}
+		input:not(input[type='checkbox']) {
+			padding: 0.5rem;
+			flex-grow: 1;
+		}
+	}
+	input[type='submit'] {
+		width: 12rem;
+		height: 3rem;
+		margin: 5rem 0;
+	}
+	.error {
+		font-size: 1rem;
+		color: rgba(red, 0.8);
+	}
+}
+
+.display-photos {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 1rem;
+
+	img {
+		height: 15rem;
+
+		margin: 0.125rem;
+	}
+
+	.photo {
+		border: 1px solid gray;
+		margin: 0 1rem 1rem;
+		width: min-content;
+	}
+
+	.header {
+		text-align: right;
+		width: 100%;
+		padding: 0.25rem 0.5rem;
+		border-bottom: 1px solid gray;
+	}
+
+	.photo-field {
+		margin: 0.5rem;
+		display: flex;
+
+		label {
+			margin-right: 1rem;
+		}
+
+		input:not(input[type='checkbox']) {
+			width: 2rem;
+		}
+	}
+}

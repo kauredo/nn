@@ -2,7 +2,11 @@ import * as React from 'react';
 
 const styles = require('./NavBar.module.scss');
 
-export default function NavBar() {
+interface Props {
+	backoffice: boolean;
+}
+
+export default function NavBar(props: Props) {
 	const burgerRef = React.useRef(null);
 	const linksRef = React.useRef(null);
 	const navRef = React.useRef(null);
@@ -64,8 +68,9 @@ export default function NavBar() {
 						<a href='/'>
 							<p
 								className={`${styles.link} ${
-									!['/about', '/contact'].includes(window.location.pathname) &&
-									styles.active
+									!['/about', '/contact', '/backoffice'].includes(
+										window.location.pathname
+									) && styles.active
 								}`}
 							>
 								Work
@@ -89,6 +94,17 @@ export default function NavBar() {
 								Contact
 							</p>
 						</a>
+						{props.backoffice && (
+							<a href='/backoffice'>
+								<p
+									className={`${styles.link} ${
+										window.location.pathname === '/backoffice' && styles.active
+									}`}
+								>
+									Backoffice
+								</p>
+							</a>
+						)}
 					</div>
 					<div className={styles.instagram}>
 						<h1>

@@ -13,10 +13,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag "application" %>
     <script src="https://kit.fontawesome.com/f01d8e868a.js" crossorigin="anonymous"></script>
+    <%= yield(:head) if content_for? :head%>
   </head>
 
   <body>
-    <%= react_component('NavBar') %>
+    <%= yield(:additional_styles) if content_for? :additional_styles%>
+    <%= react_component('NavBar', backoffice: current_admin&.confirmed) %>
     <div class='container'>
       <%= yield %>
     </div>
