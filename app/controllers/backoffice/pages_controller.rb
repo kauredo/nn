@@ -13,7 +13,7 @@ class Backoffice::PagesController < ApplicationController
       params[:photos]['image']&.each do |a|
         @photo = @page.photos.create!(image: a, page_id: @page.id)
       end
-      render :edit
+      redirect_to edit_backoffice_page_path(@page)
     else
       render action: 'new'
     end
