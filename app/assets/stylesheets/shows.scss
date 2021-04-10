@@ -6,6 +6,11 @@
 	justify-content: space-between;
 }
 
+#caroussel {
+	position: relative;
+	z-index: -1;
+}
+
 .top-show {
 	h1 {
 		text-transform: uppercase;

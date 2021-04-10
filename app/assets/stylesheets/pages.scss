@@ -69,12 +69,20 @@ a {
 	flex-direction: column;
 	justify-content: space-between;
 
+	.small-header {
+		font-size: 0.65rem;
+	}
+
 	.about-bottom {
 		margin-bottom: 4rem;
 	}
 
 	@media screen and (min-width: 760px) {
 		max-width: 55%;
+
+		.small-header {
+			font-size: 0.8rem;
+		}
 	}
 }
 

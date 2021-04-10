@@ -32,7 +32,7 @@
     <% end %>
   </div>
   <% if @page.is_slider %>
-     <div>
+     <div id="caroussel">
       <%= react_component('ImageCarousel', images: @page.photos.sort_order.map(&:image) ) %>
     </div>
   <% else %>
@@ -46,9 +46,9 @@
   <% end %>
   <% if @prev_page.blank? && @next_page.present? %>
     <div class="scroller" style="justify-content: flex-end">
-      <%= link_to "#{@next_page}" do %>
+      <%= link_to "#{@next_page.slug}" do %>
         <div class="scroller-section">
-          <h5 class="subtitle"><%= @next_page %></h5>
+          <h5 class="subtitle"><%= @next_page.title %></h5>
           <h5>
             <i class="fas fa-chevron-right"></i>
           </h5>
@@ -57,17 +57,17 @@
     </div>
   <% elsif @prev_page.present? && @next_page.present? %>
     <div class="scroller">
-      <%= link_to "#{@prev_page}" do %>
+      <%= link_to "#{@prev_page.slug}" do %>
         <div class="scroller-section">
           <h5>
             <i class="fas fa-chevron-left"></i>
           </h5>
-          <h5 class="subtitle"><%= @prev_page %></h5>
+          <h5 class="subtitle"><%= @prev_page.title %></h5>
         </div>
       <% end %>
-      <%= link_to "#{@next_page}" do %>
+      <%= link_to "#{@next_page.slug}" do %>
         <div class="scroller-section">
-          <h5 class="subtitle"><%= @next_page %></h5>
+          <h5 class="subtitle"><%= @next_page.title %></h5>
           <h5>
             <i class="fas fa-chevron-right"></i>
           </h5>
@@ -76,12 +76,12 @@
     </div>
   <% else %>
     <div class="scroller">
-      <%= link_to "#{@prev_page}" do %>
+      <%= link_to "#{@prev_page.slug}" do %>
         <div class="scroller-section">
           <h5>
             <i class="fas fa-chevron-left"></i>
           </h5>
-          <h5 class="subtitle"><%= @prev_page %></h5>
+          <h5 class="subtitle"><%= @prev_page.title %></h5>
         </div>
       <% end %>
     </div>
