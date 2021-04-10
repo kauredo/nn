@@ -11,10 +11,12 @@ export default function NavBar(props: Props) {
 	const linksRef = React.useRef(null);
 	const navRef = React.useRef(null);
 	const [open, setOpen] = React.useState(false);
+	const caroussel = document.getElementById('caroussel');
 	const addClick = () => {
 		setOpen(!open);
 		burgerRef.current.classList.toggle(styles.open);
 		if (linksRef.current.classList.contains(styles.hidden)) {
+			caroussel && caroussel.classList.toggle('hidden');
 			setTimeout(() => {
 				navRef.current.classList.toggle(styles.fixed);
 			}, 500);
@@ -26,12 +28,17 @@ export default function NavBar(props: Props) {
 		} else {
 			navRef.current.classList.toggle(styles.fixed);
 			document.body.style.overflowY = 'auto';
+			caroussel && caroussel.classList.toggle('hidden');
 			linksRef.current.classList.toggle(styles.visuallyHidden);
 			setTimeout(() => {
 				linksRef.current.classList.toggle(styles.hidden);
 			}, 600);
 		}
 	};
+
+	React.useEffect(() => {
+		caroussel && caroussel.classList.remove('hidden');
+	}, []);
 
 	React.useEffect(() => {
 		let vh = window.innerHeight * 0.01;
