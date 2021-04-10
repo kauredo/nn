@@ -1,5 +1,12 @@
 <% content_for :additional_styles do -%>
   <style>
+    <% mobile = '' %>
+    <% desktop = '' %>
+    <% @page.number_rows_mobile.times { mobile.concat('1fr ') } %>
+    <% @page.number_rows_desktop.times { desktop.concat('1fr ') } %>
+    .images {
+      grid-template-columns: <%= mobile %>
+    }
     .image-section {
       margin: auto;
     }
@@ -10,6 +17,9 @@
     }
 
     @media screen and (min-width: 760px) {
+      .images {
+        grid-template-columns: <%= desktop %>
+      }
       .image-section {
         margin: 1vw 0.5vw 0;
         min-width: fit-content;
