@@ -1,3 +1,6 @@
+<% content_for :meta_title, "#{@page.title} - #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, "Check the album '#{@page.title}'" %>
+<% content_for :meta_image, cl_image_path(@page.main_photo&.image) %>
 <% content_for :additional_styles do -%>
   <style>
     <% mobile = '' %>
