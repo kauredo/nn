@@ -1,5 +1,5 @@
 meta_product_name: 'IMKAUFMANN'
 meta_title: 'IMKAUFMANN'
 meta_description: 'Guilherme Kaufmann is a Lisbon-based photographer and art director. With a creative and elegant aesthetic, he photographs a diverse range of topics for commercial and editorial clients.'
-meta_image: 'logo.png' # should exist in `app/assets/images/`
+meta_image: 'https://res.cloudinary.com/drpwozhzg/image/upload/v1618442990/logo.png'
 twitter_account: '@Timon_ala_carte' # required for Twitter Cards
