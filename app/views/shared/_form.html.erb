@@ -1,5 +1,9 @@
 <%= form_with model: @page, url: @page.id ? backoffice_page_path(@page) : backoffice_pages_path(), class: "artigo-form" do |form| %>
   <div class="field">
+    <%= form.label :order %>
+    <%= form.number_field :order %>
+  </div>
+  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>

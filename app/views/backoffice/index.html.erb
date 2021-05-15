@@ -5,6 +5,7 @@
   <table class="bo-table">
     <thead>
       <td></td>
+      <td>order</td>
       <td>title</td>
       <td>models_name</td>
       <td>models_instagram</td>
@@ -19,6 +20,11 @@
       <% @pages.each do |page| %>
         <tr>
           <td><%= link_to '❌', backoffice_page_path(page), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <td>
+            <%= form_with model: page, url: backoffice_page_path(page), class: "page-form", onchange: 'this.form.submit()' do |f| %>
+              <%= f.number_field :order, value: page.order %>
+            <% end %>
+          </td>
           <td><%= page.title %></td>
           <td><%= page.models_name %></td>
           <td><%= page.models_instagram %></td>

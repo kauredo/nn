@@ -22,16 +22,20 @@ class Backoffice::PagesController < ApplicationController
   def edit; end
 
   def update
-    @page.slug = nil if @page.title != page_params[:title].downcase
-    @page.title = page_params[:title].downcase
+    if page_params[:title].present?
+      @page.slug = nil if @page.title != page_params[:title].downcase
+      @page.title = page_params[:title].downcase
 
-    if @page.update(page_params.except(:title))
-      params[:photos]['image']&.each do |a|
-        @photo = @page.photos.create!(image: a, page_id: @page.id)
+      if @page.update(page_params.except(:title)) && params[:photos]
+        params[:photos]['image']&.each do |a|
+          @photo = @page.photos.create!(image: a, page_id: @page.id)
+        end
+        photos
+      else
+        redirect_to edit_backoffice_page_path(@page)
       end
-      photos
     else
-      redirect_to edit_backoffice_page_path(@page)
+      @page.update_attribute('order', page_params[:order])
     end
   end
 
@@ -76,6 +80,7 @@ class Backoffice::PagesController < ApplicationController
       :number_rows_desktop,
       :number_rows_mobile,
       :is_slider,
+      :order,
       photos: [
         :id,
         :page_id,

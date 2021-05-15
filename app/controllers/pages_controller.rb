@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def work
-    @pages = Page.all
+    @pages = Page.sort_order
   end
 
   def about; end

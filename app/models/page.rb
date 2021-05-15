@@ -8,6 +8,10 @@ class Page < ApplicationRecord
   validates :number_rows_desktop, presence: true
   validates :number_rows_mobile, presence: true
 
+  scope :sort_order, -> {
+    where.not(order: nil).order(:order)
+  }
+
   def main_photo
     photos.where(main: true).first
   end
