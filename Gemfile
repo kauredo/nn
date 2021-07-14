@@ -26,6 +26,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'devise'
 gem 'friendly_id'
+gem 'google-analytics-rails', '1.1.0'
 gem 'react-rails'
 
 # Use Active Storage variant
