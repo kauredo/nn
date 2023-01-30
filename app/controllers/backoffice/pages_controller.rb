@@ -36,6 +36,7 @@ class Backoffice::PagesController < ApplicationController
       end
     else
       @page.update_attribute('order', page_params[:order])
+      redirect_to '/backoffice'
     end
   end
 
