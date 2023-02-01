@@ -104,6 +104,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dockerfile-rails (1.0.1)
+      rails
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
@@ -300,6 +302,7 @@ DEPENDENCIES
   carrierwave
   cloudinary
   devise
+  dockerfile-rails (>= 1.0.0)
   dotenv-rails
   friendly_id
   google-analytics-rails (= 1.1.0)
@@ -324,4 +327,4 @@ RUBY VERSION
    ruby 3.1.0p0
 
 BUNDLED WITH
-   2.2.15
+   2.4.6
