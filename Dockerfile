@@ -34,11 +34,17 @@ FROM base as build
 
 # Install packages needed to build gems and node modules
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential libpq-dev libvips node-gyp pkg-config python-is-python3 redis
+    apt-get install --no-install-recommends -y build-essential libpq-dev libvips node-gyp pkg-config python-is-python3 redis gnupg2
 
 # Install yarn
 ARG YARN_VERSION=1.22.19
 RUN npm install -g yarn@$YARN_VERSION
+
+# Install Pg
+RUN curl -sSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+  && echo "deb http://apt.postgresql.org/pub/repos/apt/ $(sed -n 's/VERSION_CODENAME=\(.*\)$/\1/p' /etc/os-release)-pgdg main" 14 > /etc/apt/sources.list.d/pgdg.list
+
+ARG DEPLOY_PACKAGES="file vim curl gzip nodejs postgresql-client-14"
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
